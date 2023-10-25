@@ -1,0 +1,818 @@
+.panel {
+    @include adaptiveValue("padding-top", 64, 32);
+    @include adaptiveValue("padding-bottom", 128, 64);
+
+    // .panel__container
+
+    &__container {
+        display: flex;
+        align-items: center;
+        gap: toRem(36);
+        justify-content: space-between;
+        @media (max-width: em(1200)) {
+            flex-direction: column;
+        }
+    }
+
+    // .panel__content
+
+    &__content {
+        max-width: toRem(564);
+        width: 100%;
+        flex: 0 0 percent(564, 1440);
+    }
+
+    // .panel__title
+
+    &__title {
+        margin-bottom: toRem(16);
+    }
+
+    // .panel__text
+
+    &__text {
+        margin-bottom: toRem(32);
+    }
+
+    // .panel__items
+
+    &__items {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: toRem(16);
+        row-gap: toRem(24);
+        @media (max-width: $mobileSmall) {
+            grid-template-columns: repeat(1, 1fr);
+        }
+    }
+
+    // .panel__item
+
+    &__item {
+    }
+
+    // .panel__item-link
+
+    &__item-link {
+        display: inline-flex;
+        padding: toRem(8) toRem(16);
+        border-radius: toRem(2);
+        background-color: $primaryColor;
+        margin-bottom: toRem(8);
+        transition: background-color 0.3s;
+        @media (any-hover: hover) {
+            &:hover {
+                background-color: $accentColor;
+            }
+        }
+    }
+
+    // .panel__item-text
+
+    &__item-text {
+    }
+
+    // .panel__body
+
+    &__body {
+        position: relative;
+        flex: 0 0 percent(736, 1440);
+        max-width: toRem(736);
+        width: 100%;
+        min-width: 0;
+    }
+
+    // .panel__slider
+
+    &__slider {
+        @media (max-width: em(600)) {
+            margin-right: toRem(-15);
+        }
+    }
+
+    // .panel__wrapper
+
+    &__wrapper {
+    }
+
+    // .panel__slide
+
+    &__slide {
+        border-radius: toRem(15);
+        overflow: hidden;
+    }
+
+    // .panel__slide-image-ibg
+
+    &__slide-image-ibg {
+        aspect-ratio: 736 / 416;
+    }
+
+    // .panel__controls
+
+    &__controls {
+        position: absolute;
+        right: toRem(32);
+        bottom: toRem(32);
+        display: flex;
+        gap: toRem(16);
+        @media (max-width: em(600)) {
+            display: none;
+        }
+    }
+
+    &__button-prev,
+    &__button-next {
+        width: toRem(60);
+        height: toRem(60);
+        border-radius: toRem(10);
+        background: $primaryColor url("@img/icons/arrow.svg") center / 12px no-repeat;
+        transition: background-color 0.3s;
+        @media (any-hover: hover) {
+            &:hover {
+                background-color: $accentColor;
+            }
+        }
+    }
+    // .panel__button-prev
+
+    &__button-prev {
+        transform: rotate(-180deg);
+    }
+
+    // .panel__button-next
+
+    &__button-next {
+    }
+}
+//========================================================================================================================================================
+.plans {
+    @include adaptiveValue("padding-top", 128, 64);
+    @include adaptiveValue("padding-bottom", 128, 64);
+    background-color: $secondaryColor;
+
+    // .plans__container
+
+    &__container {
+    }
+
+    // .plans__title
+
+    &__title {
+        max-width: toRem(800);
+        margin: 0 auto;
+        text-align: center;
+        margin-bottom: toRem(16);
+        padding-bottom: toRem(16);
+        position: relative;
+        &::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: toRem(102);
+            height: toRem(5);
+            background-color: $primaryColor;
+        }
+    }
+
+    // .plans__text
+
+    &__text {
+        max-width: toRem(800);
+        margin: 0 auto;
+        text-align: center;
+        @include adaptiveValue("margin-bottom", 48, 32);
+    }
+
+    // .plans__items
+
+    &__items {
+        display: flex;
+    }
+
+    // .plans__items--2
+
+    &__items--2 {
+        @media (max-width: em(1240)) {
+            flex-direction: column;
+            .plans__item {
+                padding: toRem(32) 0;
+                &:first-child {
+                    padding-top: 0;
+                }
+                &:last-child {
+                    padding-bottom: 0;
+                }
+                &:not(:last-child) {
+                    border-right: none;
+                    border-bottom: toRem(3) solid rgba(34, 45, 63, 0.5);
+                }
+            }
+        }
+    }
+
+    // .plans__items--3
+
+    &__items--3 {
+        .plans__item {
+            flex: 1;
+        }
+
+        .plan {
+            @include adaptiveValue("padding-left", 32, 16, 0, 1440, 991.98);
+            @include adaptiveValue("padding-right", 32, 16, 0, 1440, 991.98);
+            @media (max-width: $mobile) {
+                padding: 0;
+            }
+        }
+
+        .plan__label {
+            max-width: toRem(273);
+            width: 100%;
+        }
+
+        @media (max-width: $tablet) {
+            flex-direction: column;
+            .plans__item {
+                padding: toRem(32) 0;
+                &:first-child {
+                    padding-top: 0;
+                }
+                &:last-child {
+                    padding-bottom: 0;
+                }
+                &:not(:last-child) {
+                    border-right: none;
+                    border-bottom: toRem(3) solid rgba(34, 45, 63, 0.5);
+                }
+            }
+        }
+    }
+
+    // .plans__item
+
+    &__item {
+        @include adaptiveValue("padding-left", 32, 16, 0, 1440, 991.98);
+        @include adaptiveValue("padding-right", 32, 16, 0, 1440, 991.98);
+        flex: 1 1 auto;
+        &:first-child {
+            padding-left: 0;
+        }
+        &:last-child {
+            padding-right: 0;
+        }
+        &:not(:last-child) {
+            border-right: toRem(3) solid rgba(34, 45, 63, 0.5);
+        }
+    }
+
+    // .plans__item-title
+
+    &__item-title {
+        text-align: center;
+        color: rgba(255, 255, 255, 0.25);
+        margin-bottom: toRem(32);
+    }
+
+    // .plans__item-plans
+
+    &__item-plans {
+        display: flex;
+        @include adaptiveValue("column-gap", 32, 16, 0, 1440, 991.98);
+        @media (max-width: $mobile) {
+            flex-direction: column;
+            row-gap: toRem(32);
+        }
+    }
+
+    // .plans__item-policy
+
+    &__item-policy {
+        margin-top: toRem(32);
+        text-align: center;
+        display: flex;
+        gap: toRem(5);
+        align-items: center;
+        justify-content: center;
+        &::before,
+        &::after {
+            content: "";
+            min-width: toRem(24);
+            height: toRem(24);
+            background: url("@img/plans/insurance.svg") 0 0 no-repeat;
+        }
+        &--dntmiss {
+            &::before,
+            &::after {
+                content: "";
+                min-width: toRem(24);
+                height: toRem(24);
+                background: url("@img/plans/crown.svg") 0 0 no-repeat;
+            }
+        }
+    }
+
+    // .plans__item-text
+
+    &__item-text {
+        margin-top: toRem(32);
+        text-align: center;
+        a {
+            font-weight: 900;
+            color: #0f0;
+            @media (any-hover: hover) {
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+}
+.plan {
+    width: 100%;
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    // .plan__label
+
+    &__label {
+        position: relative;
+        z-index: 2;
+        background-color: $primaryColor;
+        padding: toRem(8) toRem(16);
+        border-radius: toRem(3);
+        font-size: toRem(12);
+        line-height: math.div(15, 12);
+        font-weight: 900;
+        &--gray {
+            background-color: $accentColor;
+        }
+    }
+
+    // .plan__body
+
+    &__body {
+        width: 100%;
+        margin-top: toRem(-15);
+        background: url("@img/plans/bg.jpg") center / cover no-repeat;
+        border-radius: toRem(10);
+        overflow: hidden;
+        padding-left: toRem(15);
+        padding-right: toRem(15);
+        padding-top: toRem(47);
+        padding-bottom: toRem(55);
+    }
+
+    // .plan__image
+
+    &__image {
+        margin-bottom: toRem(32);
+    }
+
+    // .plan__title
+
+    &__title {
+        font-weight: 900;
+        margin-bottom: toRem(32);
+    }
+
+    // .plan__info
+
+    &__info {
+        margin-bottom: toRem(32);
+    }
+
+    // .plan__info-item
+
+    &__info-item {
+        font-weight: 500;
+        &:not(:last-child) {
+            margin-bottom: toRem(8);
+        }
+    }
+
+    // .plan__price
+
+    &__price {
+        display: flex;
+        flex-direction: column;
+        gap: toRem(4);
+        font-weight: 900;
+        font-size: toRem(20);
+        line-height: math.div(25, 20);
+        span {
+            font-size: toRem(12);
+            line-height: math.div(15, 12);
+            font-weight: 500;
+        }
+    }
+
+    // .plan__link
+
+    &__link {
+        margin-top: toRem(-23);
+        padding: toRem(16);
+        border-radius: toRem(6);
+        background-color: $primaryColor;
+        font-size: toRem(12);
+        line-height: math.div(15, 12);
+        font-weight: 900;
+        text-transform: uppercase;
+        transition: background-color 0.3s;
+        @media (any-hover: hover) {
+            &:hover {
+                background-color: #4e95ff;
+            }
+        }
+    }
+}
+//========================================================================================================================================================
+.compare {
+    @include adaptiveValue("padding-top", 128, 64);
+    @include adaptiveValue("padding-bottom", 128, 64);
+    // .compare__container
+
+    &__container {
+    }
+
+    // .compare__title
+
+    &__title,
+    &__text {
+        max-width: toRem(800);
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    &__title {
+        margin-bottom: toRem(16);
+    }
+
+    // .compare__text
+
+    &__text {
+        margin-bottom: toRem(32);
+    }
+
+    // .compare__body
+
+    &__body {
+        overflow: auto;
+        @media (max-width: $mobile) {
+            margin-right: toRem(-15);
+            margin-left: toRem(-15);
+
+            // padding-right: toRem(15);
+        }
+    }
+
+    // .compare__table
+
+    &__table {
+        min-width: min-content;
+        max-width: toRem(927);
+        width: 100%;
+        margin: 0 auto;
+        text-align: center;
+        padding: toRem(32);
+        border-radius: toRem(5);
+        background-color: $secondaryColor;
+        line-height: math.div(20, 16);
+        font-weight: 500;
+        display: flex;
+        justify-content: space-between;
+        gap: toRem(16);
+        margin-bottom: toRem(32);
+        p {
+            white-space: nowrap;
+            &:not(:last-child) {
+                margin-bottom: toRem(24);
+            }
+        }
+        @media (max-width: $mobile) {
+            margin-right: toRem(15);
+            margin-left: toRem(15);
+        }
+    }
+
+    // .compare__table-column
+
+    &__table-column {
+        padding: toRem(16) 0;
+    }
+
+    // .compare__table-column--skynode
+
+    &__table-column--skynode {
+        padding-left: toRem(24);
+        padding-right: toRem(24);
+        border-radius: toRem(5);
+        background-color: $primaryColor;
+    }
+
+    // .compare__desc
+
+    &__desc {
+        max-width: toRem(592);
+        margin: 0 auto;
+        text-align: center;
+    }
+}
+//========================================================================================================================================================
+.awesome {
+    @include adaptiveValue("padding-top", 128, 64);
+    @include adaptiveValue("padding-bottom", 128, 64);
+    background-color: $secondaryColor;
+
+    // .awesome__container
+
+    &__container {
+    }
+
+    // .awesome__title
+
+    &__title,
+    &__text {
+        max-width: toRem(800);
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    &__title {
+        margin-bottom: toRem(16);
+    }
+
+    // .awesome__text
+
+    &__text {
+        @include adaptiveValue("margin-bottom", 64, 32);
+    }
+
+    // .awesome__items
+
+    &__items {
+        display: flex;
+        @include adaptiveValue("gap", 64, 32, 0, 1440, 991.98);
+        @media (max-width: $mobile) {
+            flex-direction: column;
+        }
+    }
+
+    // .awesome__item
+
+    &__item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        @include adaptiveValue("gap", 32, 16);
+        text-align: center;
+    }
+
+    // .awesome__item-icon
+
+    &__item-icon {
+    }
+
+    // .awesome__item-title
+
+    &__item-title {
+        font-size: toRem(24);
+        line-height: math.div(30, 24);
+        font-weight: 900;
+        flex: 1 1 auto;
+    }
+
+    // .awesome__item-text
+
+    &__item-text {
+    }
+}
+//========================================================================================================================================================
+.server {
+    @include adaptiveValue("padding-top", 128, 64);
+    @include adaptiveValue("padding-bottom", 64, 32);
+
+    // .server__container
+
+    &__container {
+        display: flex;
+        gap: toRem(32);
+        flex-direction: row-reverse;
+        align-items: center;
+        justify-content: space-between;
+        @media (max-width: $tablet) {
+            flex-direction: column;
+        }
+    }
+
+    // .server__content
+
+    &__content {
+        max-width: toRem(650);
+    }
+
+    // .server__title
+
+    &__title {
+        margin-bottom: toRem(16);
+    }
+
+    // .server__text
+
+    &__text {
+    }
+
+    // .server__image-ibg
+
+    &__image-ibg {
+        border-radius: toRem(10);
+        overflow: hidden;
+        max-width: toRem(544);
+        width: 100%;
+        flex: 0 0 percent(544, 1440);
+        aspect-ratio: 544 / 254;
+    }
+}
+//========================================================================================================================================================
+.locations {
+    @include adaptiveValue("padding-top", 64, 32);
+    @include adaptiveValue("padding-bottom", 64, 32);
+    // .locations__container
+
+    &__container {
+        display: flex;
+        gap: toRem(32);
+        align-items: center;
+        justify-content: space-between;
+        @media (max-width: $tablet) {
+            flex-direction: column;
+        }
+    }
+
+    // .locations__content
+
+    &__content {
+        max-width: toRem(650);
+    }
+
+    // .locations__title
+
+    &__title {
+        margin-bottom: toRem(16);
+    }
+
+    // .locations__text
+
+    &__text {
+    }
+
+    // .locations__buttons
+
+    &__buttons {
+        flex: 0 0 percent(632, 1440);
+        max-width: toRem(632);
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: toRem(16);
+        text-align: center;
+        @media (max-width: $mobileSmall) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    // .locations__button
+
+    &__button {
+        @media (min-width: $tablet) {
+            white-space: nowrap;
+        }
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        padding: toRem(16);
+        border-radius: toRem(3);
+        transition: background-color 0.3s;
+        @media (any-hover: hover) {
+            &:hover {
+                background-color: $accentColor;
+            }
+        }
+    }
+}
+//========================================================================================================================================================
+.protection {
+    @include adaptiveValue("padding-top", 64, 32);
+    @include adaptiveValue("padding-bottom", 128, 64);
+    // .protection__container
+
+    &__container {
+        display: flex;
+        gap: toRem(32);
+        flex-direction: row-reverse;
+        align-items: center;
+        justify-content: space-between;
+        @media (max-width: $tablet) {
+            flex-direction: column;
+        }
+    }
+
+    // .protection__content
+
+    &__content {
+        max-width: toRem(768);
+        text-align: center;
+    }
+
+    // .protection__title
+
+    &__title {
+        margin-bottom: toRem(16);
+    }
+
+    // .protection__text
+
+    &__text {
+    }
+
+    // .protection__image-ibg
+
+    &__image-ibg {
+        border-radius: toRem(10);
+        overflow: hidden;
+        max-width: toRem(544);
+        width: 100%;
+        flex: 0 0 percent(544, 1440);
+        aspect-ratio: 544 / 224;
+    }
+}
+//========================================================================================================================================================
+.faq {
+    @include adaptiveValue("padding-top", 128, 64);
+    @include adaptiveValue("padding-bottom", 128, 64);
+    background-color: $secondaryColor;
+
+    // .faq__container
+
+    &__container {
+    }
+
+    // .faq__title
+
+    &__title,
+    &__text {
+        max-width: toRem(800);
+        text-align: center;
+        margin: 0 auto;
+    }
+
+    &__title {
+        margin-bottom: toRem(16);
+    }
+
+    // .faq__text
+
+    &__text {
+        @include adaptiveValue("margin-bottom", 64, 32);
+    }
+
+    // .faq__items
+
+    &__items {
+        max-width: toRem(1000);
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        @include adaptiveValue("column-gap", 64, 32, 0, 1440, 991.98);
+        @include adaptiveValue("row-gap", 48, 32, 0, 1440, 991.98);
+        @media (max-width: $mobile) {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    // .faq__item
+
+    &__item {
+        text-align: center;
+    }
+
+    // .faq__item-title
+
+    &__item-title {
+        font-weight: 700;
+        padding: toRem(8);
+        border-radius: toRem(3);
+        background-color: $accentColor;
+        margin-bottom: toRem(16);
+    }
+
+    // .faq__item-text
+
+    &__item-text {
+    }
+}
+//========================================================================================================================================================

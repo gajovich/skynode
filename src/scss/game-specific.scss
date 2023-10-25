@@ -1,0 +1,10 @@
+.specific-page {
+    .awesome {
+        background-color: unset;
+        @include adaptiveValue("padding-top", 64, 32);
+    }
+    .panel {
+        background-color: $secondaryColor;
+        @include adaptiveValue("padding-top", 128, 64);
+    }
+}
